@@ -1,5 +1,7 @@
 # HTML5 Multiplayer Game Tutorial: Phaser + Node.js WebSockets on Edgegap
 
+![Splat Arena: a paintball match in the browser](docs/images/gameplay.jpg)
+
 **Splat Arena** is a small 2D HTML5 multiplayer game you can read in one sitting and copy into your own project. It's a paintball free-for-all for 1 to 8 players:
 
 - The browser client is [Phaser 4](https://phaser.io), with no bundler and no build step.
@@ -102,8 +104,8 @@ Create a free account at [app.edgegap.com](https://app.edgegap.com).
 1. **Build and push the image** (Docker, logged in to your Edgegap Container Registry from the dashboard):
 
    ```bash
-   docker build --platform linux/amd64 -t registry.edgegap.com/<project>/splat-arena:20261124-1200 .
-   docker push registry.edgegap.com/<project>/splat-arena:20261124-1200
+   docker build --platform linux/amd64 -t registry.edgegap.com/<project>/splat-arena:20261124-1418 .
+   docker push registry.edgegap.com/<project>/splat-arena:20261124-1418
    ```
 
    Use a new tag for every build (the UTC time works well), never `latest`.

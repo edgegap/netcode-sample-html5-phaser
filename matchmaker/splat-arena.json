@@ -8,7 +8,7 @@
       "ticket_expiration_period": "30s",
       "ticket_removal_period": "1m",
       "group_inactivity_removal_period": "5m",
-      "application": { "name": "splat-arena", "version": "20261124-1200" },
+      "application": { "name": "splat-arena", "version": "20261124-1418" },
       "rules": {
         "initial": {
           "match_size": {
