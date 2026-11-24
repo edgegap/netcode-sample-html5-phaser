@@ -1,0 +1,39 @@
+# Publishes the HTML5 client (client/) to GitHub Pages. The page is static: only the game server
+# runs on Edgegap. To use it in your copy:
+#   1. Settings > Pages > Source: GitHub Actions.
+#   2. Settings > Secrets and variables > Actions > Variables: PAGES_ENABLED = true
+#      (until then, pushes skip this workflow; you can still run it by hand).
+#   3. Add https://<owner>.github.io to the matchmaker's allowed_cors_origins, and put the
+#      matchmaker URL and Auth Token in client/config.js so Find match works on the hosted page.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths: [client/**, .github/workflows/pages.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || vars.PAGES_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: client
+      - id: deploy
+        uses: actions/deploy-pages@v4

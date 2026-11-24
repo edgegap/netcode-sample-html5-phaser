@@ -1,0 +1,20 @@
+{
+  "name": "netcode-sample-html5-phaser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HTML5 multiplayer game tutorial: a Phaser browser game with an authoritative Node.js WebSocket server, hosted on Edgegap with matchmaking.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server/main.js",
+    "client": "npx --yes http-server@14.1.1 client -p 8080 -c-1",
+    "test": "node tools/local-test.mjs"
+  },
+  "dependencies": {
+    "@edgegap/sdk": "1.1.0",
+    "ws": "^8.23.0"
+  }
+}
